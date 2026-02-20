@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SENUM — Lycée Galandou Diouf | Dakar</title>
+<meta name="description" content="Club SENUM & Club Robotique SENUM — Lycée Galandou Diouf, Dakar, Sénégal.">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --g:#00D166;--g2:#00A84F;--y:#FFD600;--o:#FF6B35;
+  --dark:#080D08;--d1:#0D130D;--d2:#121912;--d3:#172017;
+  --border:rgba(0,209,102,0.13);--border2:rgba(0,209,102,0.3);
+  --text:#EDF7ED;--muted:#6B9B6B;--fh:'Syne',sans-serif;--fb:'DM Sans',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--dark);color:var(--text);font-family:var(--fb);overflow-x:hidden;}
+a{color:inherit;text-decoration:none;}
+h2{font-family:var(--fh);font-size:clamp(1.9rem,4.5vw,3rem);font-weight:800;line-height:1.05;letter-spacing:-.025em;}
+h3{font-family:var(--fh);font-weight:700;font-size:1.1rem;}
+.lbl{font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--g);display:block;margin-bottom:.7rem;}
+.wrap{max-width:1100px;margin:0 auto;padding:0 1.5rem;}
+section{padding:5rem 0;}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--fh);font-weight:700;font-size:.9rem;padding:.8rem 1.6rem;border-radius:10px;border:none;cursor:pointer;transition:all .2s;text-decoration:none;}
+.btn-g{background:var(--g);color:var(--dark);}
+.btn-g:hover{background:var(--g2);color:#fff;transform:translateY(-2px);}
+.btn-y{background:var(--y);color:var(--dark);}
+.btn-y:hover{background:#e6c100;transform:translateY(-2px);}
+.btn-gh{background:transparent;color:var(--text);border:1px solid var(--border);}
+.btn-gh:hover{border-color:var(--g);color:var(--g);}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;height:62px;display:flex;align-items:center;justify-content:space-between;padding:0 1.5rem;background:rgba(8,13,8,.9);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:var(--fh);font-weight:800;font-size:1.25rem;color:var(--g);}
+.nav-logo sup{color:var(--y);font-size:.5rem;}
+.nav-links{display:flex;gap:.1rem;list-style:none;}
+.nav-links a{color:var(--muted);font-size:.78rem;font-weight:500;padding:.35rem .6rem;border-radius:6px;transition:all .2s;}
+.nav-links a:hover{color:var(--text);background:var(--d3);}
+.nav-actions{display:flex;gap:.6rem;align-items:center;}
+.nav-don{font-family:var(--fh);font-weight:700;font-size:.78rem;color:var(--y);border:1px solid rgba(255,214,0,.3);padding:.38rem .85rem;border-radius:8px;cursor:pointer;background:rgba(255,214,0,.06);transition:all .2s;}
+.nav-don:hover{background:rgba(255,214,0,.15);}
+.nav-join{font-family:var(--fh);font-weight:700;font-size:.78rem;background:var(--g);color:var(--dark);padding:.42rem .9rem;border-radius:8px;cursor:pointer;border:none;transition:all .2s;}
+.nav-join:hover{background:var(--g2);color:#fff;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
+@media(max-width:920px){.nav-links{display:none;}.hamburger{display:flex;}}
+@media(max-width:420px){.nav-don{display:none;}}
+
+/* MOBILE MENU */
+.mob{display:none;position:fixed;inset:62px 0 0;background:var(--dark);z-index:199;flex-direction:column;padding:1.5rem;gap:.3rem;overflow-y:auto;}
+.mob.open{display:flex;}
+.mob a,.mob .mob-btn{color:var(--text);font-size:.95rem;padding:.8rem 1rem;border-radius:9px;display:block;background:none;border:none;cursor:pointer;font-family:var(--fb);text-align:left;width:100%;transition:background .2s;}
+.mob a:hover,.mob .mob-btn:hover{background:var(--d3);}
+.mob-sep{height:1px;background:var(--border);margin:.5rem 0;}
+.mob-ctas{display:flex;gap:.75rem;margin-top:.5rem;flex-wrap:wrap;}
+.mob-ctas .btn{flex:1;justify-content:center;}
+
+/* HERO */
+#hero{min-height:100vh;padding-top:62px;display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero-glow{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 5% 55%,rgba(0,209,102,.1) 0%,transparent 55%),radial-gradient(ellipse 50% 50% at 95% 10%,rgba(255,214,0,.06) 0%,transparent 50%);}
+.hero-grid{position:absolute;inset:0;opacity:.03;background-image:linear-gradient(rgba(0,209,102,1) 1px,transparent 1px),linear-gradient(90deg,rgba(0,209,102,1) 1px,transparent 1px);background-size:65px 65px;}
+.hero-ring{position:absolute;border-radius:50%;border:1px solid rgba(0,209,102,.07);animation:ring 7s ease-in-out infinite;}
+.hero-ring:nth-child(1){width:560px;height:560px;right:-160px;top:-80px;}
+.hero-ring:nth-child(2){width:380px;height:380px;right:-60px;top:20px;animation-delay:2s;}
+.hero-ring:nth-child(3){width:220px;height:220px;right:80px;top:140px;animation-delay:4s;}
+@keyframes ring{0%,100%{transform:scale(1);}50%{transform:scale(1.06);}}
+.hero-inner{position:relative;z-index:1;width:100%;padding:0 1.5rem;}
+.hero-badge{display:inline-flex;align-items:center;gap:.6rem;background:rgba(0,209,102,.08);border:1px solid rgba(0,209,102,.22);color:var(--g);font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.42rem 1.1rem;border-radius:100px;margin-bottom:2rem;}
+.dot{width:7px;height:7px;background:var(--g);border-radius:50%;animation:pulse 2s infinite;flex-shrink:0;}
+@keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.3;transform:scale(1.6);}}
+h1{font-family:var(--fh);font-size:clamp(2.8rem,8vw,6.5rem);font-weight:800;line-height:.95;letter-spacing:-.04em;}
+h1 em{font-style:normal;color:var(--g);}
+h1 .yl{color:var(--y);}
+.hero-sub{font-size:clamp(.95rem,2vw,1.1rem);color:var(--muted);max-width:540px;margin-top:1.5rem;line-height:1.75;}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:.85rem;margin-top:2.2rem;}
+.hero-stats{display:flex;flex-wrap:wrap;gap:2rem;margin-top:4rem;padding-top:2.5rem;border-top:1px solid var(--border);}
+.stat-n{font-family:var(--fh);font-size:2rem;font-weight:800;color:var(--g);}
+.stat-l{font-size:.78rem;color:var(--muted);margin-top:.2rem;}
+.scroll-hint{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;color:var(--muted);font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;}
+.sarr{width:1px;height:42px;background:linear-gradient(to bottom,transparent,var(--g));animation:sa 1.8s ease infinite;}
+@keyframes sa{0%{transform:scaleY(0);transform-origin:top;}50%{transform:scaleY(1);transform-origin:top;}51%{transform:scaleY(1);transform-origin:bottom;}100%{transform:scaleY(0);transform-origin:bottom;}}
+
+/* BAND */
+.band{background:var(--g);color:var(--dark);padding:1.2rem;overflow:hidden;}
+.band-track{display:flex;gap:3rem;white-space:nowrap;animation:bs 22s linear infinite;}
+.band-item{font-family:var(--fh);font-weight:700;font-size:.88rem;}
+.band-item::after{content:' ✦';margin-left:.5rem;}
+@keyframes bs{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+
+/* SECTION HEAD */
+.sh{margin-bottom:2.5rem;}
+.sh p{color:var(--muted);font-size:.95rem;margin-top:.9rem;line-height:1.75;max-width:620px;}
+
+/* CARDS UTILS */
+.card{background:var(--d2);border:1px solid var(--border);border-radius:16px;padding:1.75rem;transition:border-color .25s,transform .25s;}
+.card:hover{border-color:var(--border2);transform:translateY(-3px);}
+
+/* À PROPOS */
+#apropos{background:var(--d1);}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;}
+@media(max-width:640px){.ag{grid-template-columns:1fr;}}
+.club-card{position:relative;overflow:hidden;}
+.club-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.cs::before{background:linear-gradient(90deg,var(--g),var(--y));}
+.cr::before{background:linear-gradient(90deg,var(--o),var(--y));}
+.club-ico{font-size:2.5rem;margin-bottom:1rem;display:block;}
+.club-card p{color:var(--muted);font-size:.88rem;line-height:1.7;margin-top:.4rem;}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem;}
+.tag{font-size:.68rem;font-weight:700;padding:.25rem .65rem;border-radius:5px;}
+.tg{background:rgba(0,209,102,.1);color:var(--g);border:1px solid rgba(0,209,102,.2);}
+.to{background:rgba(255,107,53,.1);color:var(--o);border:1px solid rgba(255,107,53,.2);}
+.vision{grid-column:1/-1;background:linear-gradient(135deg,rgba(0,209,102,.06),rgba(255,214,0,.03));border:1px solid rgba(0,209,102,.18);border-radius:16px;padding:2.25rem;display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+@media(max-width:560px){.vision{grid-template-columns:1fr;}}
+.vision blockquote{font-size:1.05rem;font-style:italic;line-height:1.75;border-left:3px solid var(--g);padding-left:1.4rem;}
+.vision p{color:var(--muted);font-size:.88rem;line-height:1.75;}
+
+/* FORMATIONS */
+.fg2{display:grid;grid-template-columns:repeat(auto-fill,minmax(285px,1fr));gap:1.1rem;}
+.fc{position:relative;}
+.fci{font-size:1.9rem;margin-bottom:.8rem;}
+.fc h3{font-size:.98rem;margin-bottom:.4rem;}
+.fc p{color:var(--muted);font-size:.83rem;line-height:1.65;}
+.fc-meta{display:flex;gap:.85rem;margin-top:.85rem;flex-wrap:wrap;}
+.fc-meta span{font-size:.72rem;color:var(--muted);}
+.fcb{position:absolute;top:.9rem;right:.9rem;font-size:.62rem;font-weight:700;padding:.22rem .55rem;border-radius:5px;}
+.fcb-s{background:rgba(0,209,102,.12);color:var(--g);}
+.fcb-r{background:rgba(255,107,53,.12);color:var(--o);}
+
+/* PROJETS */
+.pg{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+@media(max-width:620px){.pg{grid-template-columns:1fr;}}
+.proj-thumb{height:148px;display:flex;align-items:center;justify-content:center;font-size:3.8rem;background:var(--d3);position:relative;margin:-1.75rem -1.75rem 1.2rem;}
+.pbadge{position:absolute;bottom:.65rem;right:.65rem;font-size:.62rem;font-weight:700;padding:.22rem .6rem;border-radius:5px;background:rgba(0,209,102,.14);color:var(--g);text-transform:uppercase;letter-spacing:.05em;}
+.proj-card p{color:var(--muted);font-size:.83rem;line-height:1.65;margin-top:.35rem;}
+
+/* PROGRAMME */
+.tg2{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;}
+@media(max-width:700px){.tg2{grid-template-columns:1fr;}}
+.trim-card{position:relative;overflow:hidden;}
+.tn{font-family:var(--fh);font-size:4.5rem;font-weight:800;color:rgba(0,209,102,.06);line-height:1;position:absolute;top:.3rem;right:.8rem;}
+.trim-card h3{color:var(--g);font-size:.9rem;margin-bottom:1rem;}
+.trim-card ul{list-style:none;}
+.trim-card li{font-size:.83rem;color:var(--muted);padding:.4rem 0 .4rem 1rem;border-bottom:1px solid rgba(255,255,255,.04);position:relative;}
+.trim-card li:last-child{border:none;}
+.trim-card li::before{content:'→';position:absolute;left:0;color:var(--g);font-size:.7rem;}
+
+/* ÉQUIPE */
+#equipe{background:var(--d1);}
+.ttitle{font-family:var(--fh);font-size:1.1rem;font-weight:700;margin:2.5rem 0 1rem;padding-bottom:.6rem;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:.6rem;flex-wrap:wrap;}
+.tbranch{font-size:.75rem;color:var(--muted);margin:1.3rem 0 .6rem;font-weight:700;text-transform:uppercase;letter-spacing:.07em;}
+.tgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:.85rem;margin-bottom:.85rem;}
+.member{background:var(--d2);border:1px solid var(--border);border-radius:13px;padding:1.15rem;text-align:center;transition:border-color .25s;}
+.member:hover{border-color:var(--border2);}
+.av{width:54px;height:54px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--fh);font-weight:800;font-size:1.1rem;color:var(--dark);margin:0 auto .8rem;}
+.avg{background:linear-gradient(135deg,var(--g),var(--y));}
+.avo{background:linear-gradient(135deg,var(--o),var(--y));}
+.mn{font-weight:600;font-size:.82rem;line-height:1.3;}
+.mr{color:var(--g);font-size:.7rem;font-weight:700;margin-top:.18rem;}
+.mc{color:var(--muted);font-size:.7rem;}
+.pill{font-size:.62rem;font-weight:700;padding:.22rem .55rem;border-radius:5px;text-transform:uppercase;letter-spacing:.06em;}
+.pg2{background:rgba(0,209,102,.15);color:var(--g);}
+.po2{background:rgba(255,107,53,.15);color:var(--o);}
+
+/* DONS */
+#dons{}
+.dons-top{background:linear-gradient(135deg,rgba(0,209,102,.08),rgba(255,214,0,.04));border:1px solid rgba(0,209,102,.18);border-radius:20px;padding:2.75rem 2rem;text-align:center;margin-bottom:1.75rem;}
+.dons-top h2{margin-bottom:.6rem;}
+.dons-top>p{color:var(--muted);max-width:500px;margin:0 auto 2rem;font-size:.9rem;}
+.prog-wrap{background:var(--d3);border-radius:100px;height:12px;max-width:520px;margin:0 auto;overflow:hidden;}
+.prog-bar{height:100%;background:linear-gradient(90deg,var(--g),var(--y));border-radius:100px;width:0;transition:width 1.6s cubic-bezier(.4,0,.2,1);}
+.prog-labels{display:flex;justify-content:space-between;max-width:520px;margin:.6rem auto 0;font-size:.78rem;color:var(--muted);}
+.prog-pct{font-family:var(--fh);font-weight:800;font-size:1.4rem;color:var(--g);margin-top:1rem;}
+.bgt{display:grid;grid-template-columns:1fr 1fr;gap:.85rem;max-width:560px;margin:2.25rem auto;}
+@media(max-width:420px){.bgt{grid-template-columns:1fr;}}
+.bi{background:var(--d2);border:1px solid var(--border);border-radius:12px;padding:.9rem 1.1rem;display:flex;justify-content:space-between;align-items:center;}
+.bi span:first-child{font-size:.82rem;color:var(--muted);}
+.bi span:last-child{font-weight:700;color:var(--g);font-size:.85rem;}
+.pay-section{background:var(--d1);border:1px solid var(--border);border-radius:20px;padding:2.25rem;margin-top:1.75rem;}
+.pay-section h3{margin-bottom:.4rem;}
+.pay-section>p{color:var(--muted);font-size:.88rem;margin-bottom:1.75rem;line-height:1.65;}
+.pay-methods{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:.9rem;}
+.pay-card{background:var(--d2);border:1px solid var(--border);border-radius:13px;padding:1.4rem;transition:all .25s;}
+.pay-card:hover{border-color:var(--border2);transform:translateY(-2px);}
+.pay-ico{font-size:1.8rem;margin-bottom:.65rem;}
+.pay-card h4{font-size:.9rem;margin-bottom:.3rem;}
+.pay-card p{font-size:.78rem;color:var(--muted);line-height:1.55;margin-bottom:.9rem;}
+.pl{display:block;text-align:center;padding:.55rem;border-radius:8px;font-family:var(--fh);font-weight:700;font-size:.78rem;transition:all .2s;cursor:pointer;}
+.pw{background:rgba(0,209,102,.12);color:var(--g);border:1px solid rgba(0,209,102,.22);}
+.pw:hover{background:var(--g);color:var(--dark);}
+.pom{background:rgba(255,107,53,.12);color:var(--o);border:1px solid rgba(255,107,53,.22);}
+.pom:hover{background:var(--o);color:#fff;}
+.ppp{background:rgba(0,112,243,.12);color:#5ba3f5;border:1px solid rgba(0,112,243,.22);}
+.ppp:hover{background:rgba(0,112,243,.85);color:#fff;}
+.pem{background:var(--d3);color:var(--text);border:1px solid var(--border);}
+.pem:hover{border-color:var(--border2);}
+.don-impact{margin-top:1.75rem;background:var(--d2);border:1px solid var(--border);border-radius:13px;padding:1.4rem;}
+.don-impact h4{font-size:.88rem;margin-bottom:.9rem;color:var(--g);}
+.ii{display:grid;grid-template-columns:repeat(auto-fill,minmax(175px,1fr));gap:.6rem;}
+.i-item{font-size:.8rem;color:var(--muted);display:flex;gap:.5rem;}
+.i-item b{color:var(--g);flex-shrink:0;}
+
+/* SPONSORS */
+#sponsors{background:var(--d1);}
+.avg{display:grid;grid-template-columns:repeat(auto-fill,minmax(265px,1fr));gap:1.1rem;}
+.avc{background:var(--d2);border:1px solid var(--border);border-radius:13px;padding:1.4rem;transition:border-color .25s;}
+.avc:hover{border-color:var(--border2);}
+.av-ico{font-size:1.5rem;margin-bottom:.65rem;}
+.avc h3{font-size:.92rem;margin-bottom:.35rem;}
+.avc p{color:var(--muted);font-size:.82rem;line-height:1.6;}
+.spon-cta{margin-top:2.5rem;background:var(--d2);border:1px solid rgba(0,209,102,.2);border-radius:20px;padding:2.25rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;flex-wrap:wrap;}
+.spon-cta h3{font-size:1.25rem;margin-bottom:.4rem;}
+.spon-cta p{color:var(--muted);font-size:.88rem;max-width:440px;}
+.logos-ph{margin-top:2rem;padding:1.4rem;border:1px dashed var(--border);border-radius:13px;text-align:center;color:var(--muted);font-size:.83rem;}
+
+/* INSCRIPTION */
+#inscription{background:var(--d1);}
+.iw{display:grid;grid-template-columns:1fr 1fr;gap:2.75rem;align-items:start;}
+@media(max-width:740px){.iw{grid-template-columns:1fr;}}
+.il h3{font-size:1.3rem;margin-bottom:.85rem;}
+.il>p{color:var(--muted);font-size:.88rem;line-height:1.7;margin-bottom:1.35rem;}
+.why{display:flex;flex-direction:column;gap:.6rem;}
+.wi{display:flex;gap:.65rem;align-items:flex-start;}
+.wi-ico{width:33px;height:33px;border-radius:8px;background:rgba(0,209,102,.1);border:1px solid rgba(0,209,102,.18);display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:.1rem;}
+.wi-t{font-size:.84rem;color:var(--muted);line-height:1.55;}
+.wi-t strong{display:block;color:var(--text);font-size:.87rem;margin-bottom:.1rem;}
+.fbox{background:var(--d2);border:1px solid var(--border);border-radius:20px;padding:2.25rem;}
+.fg{margin-bottom:1rem;}
+.fg label{display:block;font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:.4rem;}
+.fg input,.fg select,.fg textarea{width:100%;background:var(--d3);border:1px solid var(--border);border-radius:9px;padding:.72rem .95rem;color:var(--text);font-family:var(--fb);font-size:.88rem;outline:none;transition:border-color .2s;-webkit-appearance:none;}
+.fg input:focus,.fg select:focus,.fg textarea:focus{border-color:var(--g);}
+.fg select option{background:var(--d2);}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+@media(max-width:400px){.frow{grid-template-columns:1fr;}}
+.fsuc{display:none;text-align:center;padding:2.5rem 1rem;}
+.fsuc-ico{font-size:3rem;margin-bottom:.85rem;}
+
+/* CONTACT */
+#contact{}
+.cg{display:grid;grid-template-columns:1fr 1fr;gap:2.75rem;}
+@media(max-width:660px){.cg{grid-template-columns:1fr;}}
+.ci h3{margin-bottom:1.5rem;}
+.c-item{display:flex;gap:.9rem;margin-bottom:1.5rem;}
+.c-ico{width:42px;height:42px;border-radius:9px;background:rgba(0,209,102,.08);border:1px solid rgba(0,209,102,.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+.c-txt strong{display:block;font-size:.75rem;color:var(--muted);margin-bottom:.18rem;}
+.c-txt a:hover{color:var(--g);}
+.map-box{background:var(--d2);border:1px solid var(--border);border-radius:13px;height:195px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.45rem;color:var(--muted);font-size:.88rem;text-align:center;margin-bottom:1.1rem;}
+.map-box span{font-size:2.2rem;}
+.map-box a{color:var(--g);font-size:.82rem;}
+.cfbox{background:var(--d2);border:1px solid var(--border);border-radius:20px;padding:1.9rem;}
+.cfbox h3{font-size:.98rem;margin-bottom:1.1rem;}
+
+/* FOOTER */
+footer{background:var(--dark);border-top:1px solid var(--border);padding:3.5rem 0 2rem;}
+.fi{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:2.5rem;}
+@media(max-width:800px){.fi{grid-template-columns:1fr 1fr;gap:2rem;}}
+@media(max-width:450px){.fi{grid-template-columns:1fr;}}
+.fl{font-family:var(--fh);font-size:1.35rem;font-weight:800;color:var(--g);margin-bottom:.65rem;}
+.fl sup{color:var(--y);font-size:.5rem;}
+.fd{color:var(--muted);font-size:.82rem;line-height:1.7;max-width:255px;}
+.fc2 h4{font-family:var(--fh);font-size:.75rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;margin-bottom:.9rem;}
+.fc2 ul{list-style:none;}
+.fc2 li{margin-bottom:.55rem;}
+.fc2 a,.fc2 button{color:var(--muted);font-size:.82rem;transition:color .2s;background:none;border:none;cursor:pointer;font-family:var(--fb);padding:0;text-align:left;}
+.fc2 a:hover,.fc2 button:hover{color:var(--g);}
+.fb{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.65rem;padding-top:1.4rem;border-top:1px solid var(--border);margin-top:2.75rem;}
+.fb p{color:var(--muted);font-size:.75rem;}
+
+/* FLOAT */
+.float-don{position:fixed;bottom:1.75rem;right:1.5rem;z-index:150;background:var(--y);color:var(--dark);font-family:var(--fh);font-weight:800;font-size:.82rem;padding:.75rem 1.3rem;border-radius:100px;border:none;cursor:pointer;box-shadow:0 8px 28px rgba(255,214,0,.4);transition:all .25s;display:flex;align-items:center;gap:.45rem;}
+.float-don:hover{background:#e6c100;transform:translateY(-3px);}
+@media(max-width:440px){.float-don{padding:.65rem 1rem;bottom:1.25rem;right:.9rem;}}
+
+/* MODAL */
+.mo{position:fixed;inset:0;z-index:500;background:rgba(0,0,0,.8);backdrop-filter:blur(12px);display:none;align-items:center;justify-content:center;padding:1rem;}
+.mo.open{display:flex;}
+.modal{background:var(--d2);border:1px solid var(--border2);border-radius:20px;padding:2.25rem;max-width:520px;width:100%;max-height:90vh;overflow-y:auto;position:relative;animation:min .32s cubic-bezier(.175,.885,.32,1.275);}
+@keyframes min{from{opacity:0;transform:scale(.88) translateY(24px);}to{opacity:1;transform:scale(1) translateY(0);}}
+.mc2{position:absolute;top:1.1rem;right:1.1rem;background:var(--d3);border:1px solid var(--border);color:var(--muted);width:30px;height:30px;border-radius:7px;cursor:pointer;font-size:.85rem;display:flex;align-items:center;justify-content:center;}
+.mc2:hover{color:var(--text);}
+.modal h3{font-size:1.4rem;margin:.3rem 0 .35rem;}
+.modal .msub{color:var(--muted);font-size:.88rem;margin-bottom:1.75rem;line-height:1.6;}
+.mtabs{display:flex;gap:.4rem;margin-bottom:1.75rem;background:var(--d3);padding:.28rem;border-radius:10px;}
+.mtab{flex:1;padding:.55rem;border-radius:8px;font-family:var(--fh);font-weight:700;font-size:.78rem;cursor:pointer;border:none;background:transparent;color:var(--muted);transition:all .2s;text-align:center;}
+.mtab.active{background:var(--g);color:var(--dark);}
+.mpanel{display:none;}
+.mpanel.active{display:block;}
+.don-amounts{display:grid;grid-template-columns:repeat(3,1fr);gap:.65rem;margin-bottom:1.4rem;}
+.damt{background:var(--d3);border:2px solid var(--border);border-radius:9px;padding:.8rem .5rem;text-align:center;cursor:pointer;transition:all .2s;font-family:var(--fh);font-weight:700;font-size:.85rem;}
+.damt:hover,.damt.sel{border-color:var(--g);background:rgba(0,209,102,.08);color:var(--g);}
+.damt small{display:block;font-size:.62rem;font-weight:400;color:var(--muted);margin-top:.18rem;font-family:var(--fb);}
+.dpays{display:flex;flex-direction:column;gap:.65rem;}
+.dpay{display:flex;align-items:center;gap:.9rem;background:var(--d3);border:1px solid var(--border);border-radius:10px;padding:.9rem 1.1rem;color:var(--text);transition:all .2s;width:100%;font-family:var(--fb);text-decoration:none;cursor:pointer;}
+.dpay:hover{border-color:var(--border2);background:var(--d2);}
+.dpay-ico{width:40px;height:40px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;}
+.diw{background:rgba(0,209,102,.15);}
+.dio{background:rgba(255,107,53,.15);}
+.dipp{background:rgba(0,112,243,.15);}
+.die{background:var(--d2);}
+.dpay-txt strong{display:block;font-weight:600;font-size:.88rem;margin-bottom:.1rem;}
+.dpay-txt small{color:var(--muted);font-size:.75rem;}
+
+/* TOAST */
+.toast{position:fixed;bottom:6.5rem;right:1.5rem;z-index:999;background:var(--g);color:var(--dark);padding:.85rem 1.4rem;border-radius:11px;font-weight:700;font-size:.85rem;transform:translateY(120px);opacity:0;transition:all .4s cubic-bezier(.175,.885,.32,1.275);max-width:290px;pointer-events:none;}
+.toast.show{transform:translateY(0);opacity:1;}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">SENUM<sup>LGD</sup></div>
+  <ul class="nav-links">
+    <li><a href="#apropos">À propos</a></li>
+    <li><a href="#formations">Formations</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#equipe">Équipe</a></li>
+    <li><a href="#programme">Programme</a></li>
+    <li><a href="#dons">Soutenir</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-don" onclick="openDon()">💛 Faire un don</button>
+    <button class="nav-join" onclick="openInsc()">Rejoindre →</button>
+    <button class="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mob" id="mobMenu">
+  <a href="#apropos" onclick="closeMob()">À propos</a>
+  <a href="#formations" onclick="closeMob()">Formations</a>
+  <a href="#projets" onclick="closeMob()">Projets</a>
+  <a href="#equipe" onclick="closeMob()">Équipe</a>
+  <a href="#programme" onclick="closeMob()">Programme</a>
+  <a href="#dons" onclick="closeMob()">Soutenir</a>
+  <a href="#sponsors" onclick="closeMob()">Sponsors</a>
+  <a href="#contact" onclick="closeMob()">Contact</a>
+  <div class="mob-sep"></div>
+  <div class="mob-ctas">
+    <button class="btn btn-y" onclick="openDon();closeMob()">💛 Don</button>
+    <button class="btn btn-g" onclick="openInsc();closeMob()">Rejoindre →</button>
+  </div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-glow"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-ring"></div><div class="hero-ring"></div><div class="hero-ring"></div>
+  <div class="hero-inner">
+    <div class="wrap">
+      <div class="hero-badge"><span class="dot"></span>Lycée Galandou Diouf — Dakar, Sénégal — 2025–2026</div>
+      <h1>Former la<br>génération<br><em>numérique</em> &<br><span class="yl">scientifique</span></h1>
+      <p class="hero-sub">Club SENUM & Club Robotique SENUM — Des élèves passionnés qui transforment leur lycée en référence nationale en éducation numérique, robotique et technologique.</p>
+      <div class="hero-ctas">
+        <button class="btn btn-g" onclick="openInsc()">Rejoindre un club →</button>
+        <button class="btn btn-y" onclick="openDon()">💛 Soutenir le projet</button>
+        <a href="#apropos" class="btn btn-gh">Découvrir</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-n">200+</div><div class="stat-l">Élèves à former</div></div>
+        <div><div class="stat-n">2</div><div class="stat-l">Clubs actifs</div></div>
+        <div><div class="stat-n">7+</div><div class="stat-l">Formations</div></div>
+        <div><div class="stat-n">4</div><div class="stat-l">Branches robotique</div></div>
+        <div><div class="stat-n">650K</div><div class="stat-l">FCFA objectif</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><div class="sarr"></div>Défiler</div>
+</section>
+
+<!-- BAND -->
+<div class="band" aria-hidden="true">
+  <div class="band-track">
+    <span class="band-item">Cybersécurité</span><span class="band-item">Robotique</span><span class="band-item">Programmation</span><span class="band-item">Montage vidéo</span><span class="band-item">Fact-checking</span><span class="band-item">Électronique</span><span class="band-item">STEM</span><span class="band-item">Journal numérique</span><span class="band-item">Innovation</span><span class="band-item">Arduino</span>
+    <span class="band-item">Cybersécurité</span><span class="band-item">Robotique</span><span class="band-item">Programmation</span><span class="band-item">Montage vidéo</span><span class="band-item">Fact-checking</span><span class="band-item">Électronique</span><span class="band-item">STEM</span><span class="band-item">Journal numérique</span><span class="band-item">Innovation</span><span class="band-item">Arduino</span>
+  </div>
+</div>
+
+<!-- À PROPOS -->
+<section id="apropos">
+  <div class="wrap">
+    <div class="sh">
+      <span class="lbl">À propos</span>
+      <h2>Deux clubs,<br>une vision commune</h2>
+      <p>Nés au sein du Lycée Galandou Diouf, nos clubs partagent une ambition : former des jeunes responsables, créatifs et préparés pour l'avenir numérique et technologique.</p>
+    </div>
+    <div class="ag">
+      <div class="card club-card cs">
+        <span class="club-ico">💻</span>
+        <h3>Club SENUM</h3>
+        <p>Sensibilisation et Éducation au Numérique et aux Médias. Nous formons 150 à 200 élèves par an aux outils numériques, à la cybersécurité, au fact-checking et à la production de contenu vidéo.</p>
+        <div class="tags"><span class="tag tg">Numérique</span><span class="tag tg">Médias</span><span class="tag tg">Cybersécurité</span><span class="tag tg">Vidéo</span></div>
+      </div>
+      <div class="card club-card cr">
+        <span class="club-ico">🤖</span>
+        <h3>Club Robotique SENUM</h3>
+        <p>Initier les élèves à la robotique, la programmation et l'électronique à travers 4 branches spécialisées. Nous encourageons activement les filles dans les STEM.</p>
+        <div class="tags"><span class="tag to">Robotique</span><span class="tag to">Arduino</span><span class="tag to">Électronique</span><span class="tag to">STEM & Filles</span></div>
+      </div>
+      <div class="vision">
+        <blockquote>"Faire du Lycée Galandou Diouf une référence nationale en éducation numérique et aux médias, en formant des jeunes responsables, créatifs et préparés pour l'avenir."</blockquote>
+        <div>
+          <span class="lbl">Pourquoi ce projet ?</span>
+          <p>Au Sénégal, le smartphone est le premier accès à Internet pour la majorité des lycéens — sans formation, sans connaître les risques. Nos clubs transforment des consommateurs passifs en créateurs actifs, responsables et innovants.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMATIONS -->
+<section id="formations" style="background:var(--d1);">
+  <div class="wrap">
+    <div class="sh">
+      <span class="lbl">Formations</span>
+      <h2>Apprendre,<br>pratiquer, progresser</h2>
+      <p>Des formations concrètes, accessibles à tous les niveaux. De la bureautique à la robotique, animées par des élèves pour des élèves.</p>
+    </div>
+    <div class="fg2">
+      <div class="card fc"><span class="fcb fcb-s">SENUM</span><div class="fci">📄</div><h3>Outils bureautiques</h3><p>Maîtriser Word, Excel et PowerPoint pour créer documents professionnels et présentations percutantes.</p><div class="fc-meta"><span>🎯 Tous niveaux</span><span>⏱ 2h/séance</span></div></div>
+      <div class="card fc"><span class="fcb fcb-s">SENUM</span><div class="fci">📧</div><h3>Google Workspace & Emails</h3><p>Gmail, Drive, Docs et Meet pour collaborer efficacement. Rédiger des emails professionnels.</p><div class="fc-meta"><span>🎯 Tous niveaux</span><span>⏱ 2h/séance</span></div></div>
+      <div class="card fc"><span class="fcb fcb-s">SENUM</span><div class="fci">🎬</div><h3>Montage vidéo</h3><p>Créer et éditer des vidéos avec CapCut, Canva et Kinemaster. Produire du contenu de qualité.</p><div class="fc-meta"><span>🎯 Intermédiaire</span><span>⏱ 3h/séance</span></div></div>
+      <div class="card fc"><span class="fcb fcb-s">SENUM</span><div class="fci">🔒</div><h3>Cybersécurité</h3><p>Mots de passe, arnaques en ligne, protection de la vie privée. Naviguer en toute sécurité.</p><div class="fc-meta"><span>🎯 Tous niveaux</span><span>⏱ 2h/séance</span></div></div>
+      <div class="card fc"><span class="fcb fcb-s">SENUM</span><div class="fci">🔍</div><h3>Fact-checking & Médias</h3><p>Vérifier une information, identifier les fake news et le cyberharcèlement en ligne.</p><div class="fc-meta"><span>🎯 Tous niveaux</span><span>⏱ 2h/séance</span></div></div>
+      <div class="card fc"><span class="fcb fcb-r">Robotique</span><div class="fci">💻</div><h3>Introduction à la programmation</h3><p>Bases du code et de l'algorithmique pour débuter en robotique. Créer ses premiers programmes.</p><div class="fc-meta"><span>🎯 Débutants</span><span>⏱ 3h/séance</span></div></div>
+      <div class="card fc"><span class="fcb fcb-r">Robotique</span><div class="fci">⚡</div><h3>Électronique & Circuits</h3><p>Composants, circuits et assemblage avec Arduino. Construire ses premiers robots éducatifs.</p><div class="fc-meta"><span>🎯 Débutants</span><span>⏱ 3h/séance</span></div></div>
+    </div>
+    <div style="text-align:center;margin-top:2.25rem;">
+      <button class="btn btn-g" onclick="openInsc()">S'inscrire à une formation →</button>
+    </div>
+  </div>
+</section>
+
+<!-- PROJETS -->
+<section id="projets">
+  <div class="wrap">
+    <div class="sh">
+      <span class="lbl">Projets & Productions</span>
+      <h2>Ce que nous<br>créons ensemble</h2>
+      <p>Des réalisations concrètes produites par les élèves — vidéos, journal, robots, concours.</p>
+    </div>
+    <div class="pg">
+      <div class="card proj-card"><div class="proj-thumb">📰<div class="pbadge">En cours</div></div><h3>Journal Numérique du Lycée</h3><p>Une revue numérique mensuelle couvrant l'actualité du Lycée Galandou Diouf — événements, portraits, vidéos et reportages.</p></div>
+      <div class="card proj-card"><div class="proj-thumb">🎥<div class="pbadge">Mensuel</div></div><h3>Vidéos Éducatives SENUM</h3><p>Minimum 2 vidéos éducatives par mois sur les bonnes pratiques numériques et la cybersécurité, diffusées sur YouTube et TikTok.</p></div>
+      <div class="card proj-card"><div class="proj-thumb">🤖<div class="pbadge">Lancement</div></div><h3>Robots Éducatifs Arduino</h3><p>Conception et construction de robots avec Arduino. Projets concrets pour résoudre des problèmes locaux réels.</p></div>
+      <div class="card proj-card"><div class="proj-thumb">🏆<div class="pbadge">Annuel</div></div><h3>SENUM Digital Challenge</h3><p>Un concours interne annuel récompensant les meilleures créations numériques, projets robotiques et productions vidéo.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMME -->
+<section id="programme" style="background:var(--d1);">
+  <div class="wrap">
+    <div class="sh">
+      <span class="lbl">Programme annuel 2025–2026</span>
+      <h2>Une année<br>structurée et ambitieuse</h2>
+      <p>Trois trimestres progressifs — du lancement à la reconnaissance nationale.</p>
+    </div>
+    <div class="tg2">
+      <div class="card trim-card"><div class="tn">01</div><h3>Lancement & Sensibilisation</h3><ul><li>Cérémonie officielle de lancement</li><li>Recrutement des membres</li><li>Atelier : dangers du Net</li><li>Formations Word & PowerPoint</li><li>Mise en place équipe média</li><li>1ère couverture événement scolaire</li></ul></div>
+      <div class="card trim-card"><div class="tn">02</div><h3>Production & Projets</h3><ul><li>Formation montage vidéo (CapCut, Canva)</li><li>Atelier fact-checking approfondi</li><li>Lancement du Journal Numérique</li><li>Premières vidéos éducatives</li><li>Collaboration inter-clubs</li></ul></div>
+      <div class="card trim-card"><div class="tn">03</div><h3>Rayonnement & Évaluation</h3><ul><li>SENUM Digital Challenge</li><li>Semaine Nationale du Numérique</li><li>Cérémonie de clôture officielle</li><li>Remise de certificats</li><li>Rapport final à l'administration</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- ÉQUIPE -->
+<section id="equipe">
+  <div class="wrap">
+    <div class="sh">
+      <span class="lbl">L'équipe</span>
+      <h2>Ceux qui font<br>avancer le projet</h2>
+      <p>Des élèves passionnés de la 2nde à la Terminale, engagés pour transformer l'éducation numérique au Lycée Galandou Diouf.</p>
+    </div>
+
+    <div class="ttitle">💻 Bureau Club SENUM <span class="pill pg2">Club SENUM</span></div>
+    <div class="tgrid">
+      <div class="member"><div class="av avg">MA</div><div class="mn">Mohamed Djafar A. Sall</div><div class="mr">Président</div><div class="mc">2nde SA</div></div>
+      <div class="member"><div class="av avg">MF</div><div class="mn">Mathilde Awa Faye</div><div class="mr">Vice-Présidente</div><div class="mc">2nde SC</div></div>
+      <div class="member"><div class="av avg">FO</div><div class="mn">Fatoumata Ombotimbé</div><div class="mr">Secrétaire Générale</div><div class="mc">1ère S1</div></div>
+      <div class="member"><div class="av avg">PE</div><div class="mn">Paul Ewoud</div><div class="mr">Resp. Pédagogique</div><div class="mc">1ère S2A</div></div>
+      <div class="member"><div class="av avg">ML</div><div class="mn">M. Lamine Seydi Dia</div><div class="mr">Resp. Communication</div><div class="mc">2nde SA</div></div>
+      <div class="member"><div class="av avg">EH</div><div class="mn">El Hadj Mamadou Diop</div><div class="mr">Pôle Organisation</div><div class="mc">2nde SA</div></div>
+    </div>
+
+    <div class="ttitle" style="margin-top:2.5rem;">🤖 Club Robotique SENUM <span class="pill po2">Robotique</span></div>
+    <div class="tbranch">⚡ Branche Électronique</div>
+    <div class="tgrid" style="margin-bottom:1.25rem;">
+      <div class="member"><div class="av avo">MD</div><div class="mn">Mariama Diop</div><div class="mr">Présidente & Fondatrice</div><div class="mc">Électronique</div></div>
+      <div class="member"><div class="av avo">KG</div><div class="mn">Khoudia Gueye</div><div class="mr">Vice-présidente</div><div class="mc">Électronique</div></div>
+      <div class="member"><div class="av avo">MN</div><div class="mn">M. Naby Diagne</div><div class="mr">Membre</div><div class="mc">Électronique</div></div>
+    </div>
+    <div class="tbranch">💻 Branche Programmation</div>
+    <div class="tgrid" style="margin-bottom:1.25rem;">
+      <div class="member"><div class="av avg">PE</div><div class="mn">Paul Ewoud</div><div class="mr">Président du pôle</div><div class="mc">Programmation</div></div>
+      <div class="member"><div class="av avg">EA</div><div class="mn">El Hadji A. Dian Ba</div><div class="mr">Sous-chef</div><div class="mc">Programmation</div></div>
+    </div>
+    <div class="tbranch">🎨 Branche Créative</div>
+    <div class="tgrid" style="margin-bottom:1.25rem;">
+      <div class="member"><div class="av avo">MB</div><div class="mn">Michelle Bandai</div><div class="mr">Chef créatif</div><div class="mc">Design</div></div>
+      <div class="member"><div class="av avo">MJ</div><div class="mn">M. Djafar A. Sall</div><div class="mr">Vice-chef créatif</div><div class="mc">Design</div></div>
+    </div>
+    <div class="tbranch">📣 Branche Sociale & Sponsors</div>
+    <div class="tgrid" style="margin-bottom:1.25rem;">
+      <div class="member"><div class="av avo">NF</div><div class="mn">Ndeye Fatou Faye</div><div class="mr">Chef social</div><div class="mc">Communication</div></div>
+    </div>
+    <div class="tbranch">📋 Bureau général</div>
+    <div class="tgrid">
+      <div class="member"><div class="av avg">EH</div><div class="mn">El Hadj</div><div class="mr">Secrétaire</div><div class="mc">Bureau</div></div>
+      <div class="member"><div class="av avg">AN</div><div class="mn">Aminata Ndiaye</div><div class="mr">Trésorière</div><div class="mc">Bureau</div></div>
+      <div class="member"><div class="av avg">FA</div><div class="mn">Fadel</div><div class="mr">Membre</div><div class="mc">Bureau</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DONS -->
+<section id="dons" style="background:var(--d1);">
+  <div class="wrap">
+    <div class="sh">
+      <span class="lbl">Soutenir les clubs</span>
+      <h2>Investissez dans<br>la jeunesse sénégalaise</h2>
+    </div>
+    <div class="dons-top">
+      <h2>Objectif : 650 000 FCFA</h2>
+      <p>Pour équiper le Club Robotique SENUM en kits Arduino, composants électroniques et matériel. Chaque contribution change concrètement la vie d'un élève.</p>
+      <div class="prog-wrap"><div class="prog-bar" id="progBar"></div></div>
+      <div class="prog-labels"><span>0 FCFA collecté</span><span>650 000 FCFA</span></div>
+      <div class="prog-pct">Aidez-nous à atteindre notre objectif !</div>
+    </div>
+    <div class="bgt">
+      <div class="bi"><span>🤖 Kits robotique (Arduino)</span><span>300 000 FCFA</span></div>
+      <div class="bi"><span>⚡ Composants électroniques</span><span>150 000 FCFA</span></div>
+      <div class="bi"><span>🔧 Outils & matériel</span><span>100 000 FCFA</span></div>
+      <div class="bi"><span>🎯 Activités & événements</span><span>100 000 FCFA</span></div>
+    </div>
+    <div class="pay-section">
+      <h3>Comment nous soutenir ?</h3>
+      <p>Wave et Orange Money pour le Sénégal, PayPal pour l'étranger. Envoyez, puis confirmez par email avec votre nom et montant.</p>
+      <div class="pay-methods">
+        <div class="pay-card">
+          <div class="pay-ico">📱</div>
+          <h4>Wave</h4>
+          <p>Envoi instantané sur Wave. Sans frais, disponible partout au Sénégal.</p>
+          <a class="pl pw" href="https://wave.com/send/+221787646857" target="_blank" onclick="showToast('📱 Wave ouvert — entrez le montant et confirmez !')">Envoyer via Wave →</a>
+        </div>
+        <div class="pay-card">
+          <div class="pay-ico">🟠</div>
+          <h4>Orange Money</h4>
+          <p>Transfert Orange Money au numéro du club, puis confirmez par SMS ou email.</p>
+          <a class="pl pom" href="tel:+221787646857" onclick="showToast('🟠 Envoyez au +221 78 764 68 57 via Orange Money')">+221 78 764 68 57 →</a>
+        </div>
+        <div class="pay-card">
+          <div class="pay-ico">🔵</div>
+          <h4>PayPal</h4>
+          <p>Idéal depuis l'étranger. Carte bancaire ou solde PayPal. Sécurisé et international.</p>
+          <a class="pl ppp" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=hendelnkounkou%40gmail.com&currency_code=EUR&item_name=Don+Club+SENUM+Lycee+Galandou+Diouf" target="_blank" onclick="showToast('🔵 PayPal ouvert — entrez le montant et validez !')">Payer via PayPal →</a>
+        </div>
+        <div class="pay-card">
+          <div class="pay-ico">📧</div>
+          <h4>Email / Virement</h4>
+          <p>Pour virement bancaire ou tout autre moyen. Nous vous répondons rapidement.</p>
+          <a class="pl pem" href="mailto:senum.lgd.collab@gmail.com">Nous contacter →</a>
+        </div>
+      </div>
+      <div class="don-impact">
+        <h4>💚 À quoi sert concrètement votre don ?</h4>
+        <div class="ii">
+          <div class="i-item"><b>5 000</b><span>FCFA = 1 capteur électronique</span></div>
+          <div class="i-item"><b>15 000</b><span>FCFA = 1 kit Arduino de base</span></div>
+          <div class="i-item"><b>50 000</b><span>FCFA = 3 séances de robotique</span></div>
+          <div class="i-item"><b>100 000</b><span>FCFA = 1 mois d'activités du club</span></div>
+          <div class="i-item"><b>300 000</b><span>FCFA = Kit robotique complet</span></div>
+          <div class="i-item"><b>650 000</b><span>FCFA = Lancement complet !</span></div>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem;">
+      <button class="btn btn-y" style="font-size:1rem;padding:.95rem 2.4rem;" onclick="openDon()">💛 Faire un don maintenant</button>
+    </div>
+  </div>
+</section>
+
+<!-- SPONSORS -->
+<section id="sponsors">
+  <div class="wrap">
+    <div class="sh">
+      <span class="lbl">Sponsors & Partenaires</span>
+      <h2>Construisons<br>l'avenir ensemble</h2>
+      <p>Devenir partenaire du Club SENUM, c'est contribuer directement à l'éducation et à l'innovation technologique de la jeunesse sénégalaise.</p>
+    </div>
+    <div class="avg">
+      <div class="avc"><div class="av-ico">🏷️</div><h3>Visibilité garantie</h3><p>Votre logo sur tous nos supports — affiches, site, présentations, vidéos et événements.</p></div>
+      <div class="avc"><div class="av-ico">📣</div><h3>Mentions officielles</h3><p>Remerciements lors de chaque événement. Reconnaissance officielle en tant que partenaire éducatif.</p></div>
+      <div class="avc"><div class="av-ico">📱</div><h3>Réseaux sociaux</h3><p>Publications régulières mentionnant votre organisation auprès de notre audience lycéenne.</p></div>
+      <div class="avc"><div class="av-ico">🌍</div><h3>Impact social réel</h3><p>Contribution directe à la formation de 200+ jeunes sénégalais. Investissement dans l'avenir.</p></div>
+      <div class="avc"><div class="av-ico">🎓</div><h3>Accès aux talents</h3><p>Rencontrez les futurs développeurs, créateurs et techniciens formés par nos clubs.</p></div>
+      <div class="avc"><div class="av-ico">♀️</div><h3>Promotion des STEM</h3><p>Soutenez un projet qui place les filles au cœur de l'innovation technologique.</p></div>
+    </div>
+    <div class="spon-cta">
+      <div>
+        <h3>Intéressé par un partenariat ?</h3>
+        <p>Financement, matériel, mentorat, formation — nous sommes ouverts à toute collaboration mutuellement bénéfique.</p>
+      </div>
+      <a href="mailto:senum.lgd.collab@gmail.com" class="btn btn-g">Nous contacter →</a>
+    </div>
+    <div class="logos-ph">Logos des sponsors et partenaires — à venir 🤝 Contactez-nous pour être affiché ici !</div>
+  </div>
+</section>
+
+<!-- INSCRIPTION -->
+<section id="inscription">
+  <div class="wrap">
+    <div class="sh">
+      <span class="lbl">Inscription</span>
+      <h2>Rejoins<br>l'aventure SENUM</h2>
+    </div>
+    <div class="iw">
+      <div class="il">
+        <h3>Tu es élève au Lycée Galandou Diouf ?</h3>
+        <p>Rejoins l'un de nos clubs et commence à apprendre, créer et innover. Aucune compétence requise — juste de la motivation !</p>
+        <div class="why">
+          <div class="wi"><div class="wi-ico">🚀</div><div class="wi-t"><strong>Compétences réelles</strong>Des outils concrets : bureautique, vidéo, code, électronique.</div></div>
+          <div class="wi"><div class="wi-ico">🏆</div><div class="wi-t"><strong>Compétitions & événements</strong>SENUM Digital Challenge, événements numériques nationaux.</div></div>
+          <div class="wi"><div class="wi-ico">🤝</div><div class="wi-t"><strong>Vraie communauté</strong>Élèves motivés, projets collectifs, entraide.</div></div>
+          <div class="wi"><div class="wi-ico">📜</div><div class="wi-t"><strong>Certificat officiel</strong>Chaque membre actif reçoit un certificat signé par l'administration.</div></div>
+          <div class="wi"><div class="wi-ico">♀️</div><div class="wi-t"><strong>Filles : votre place est ici</strong>Participation active encouragée dans tous nos clubs et en STEM.</div></div>
+        </div>
+      </div>
+      <div class="fbox">
+        <form id="inscForm" onsubmit="submitInsc(event)">
+          <div class="frow">
+            <div class="fg"><label>Prénom *</label><input type="text" required placeholder="Prénom"></div>
+            <div class="fg"><label>Nom *</label><input type="text" required placeholder="Nom"></div>
+          </div>
+          <div class="frow">
+            <div class="fg"><label>Classe *</label><input type="text" required placeholder="Ex: 2nde SA"></div>
+            <div class="fg"><label>Téléphone *</label><input type="tel" required placeholder="+221 ..."></div>
+          </div>
+          <div class="fg"><label>Email *</label><input type="email" required placeholder="ton.email@exemple.com"></div>
+          <div class="fg">
+            <label>Club souhaité *</label>
+            <select required onchange="toggleBranch(this)">
+              <option value="">Choisir un club...</option>
+              <option>Club SENUM (Numérique & Médias)</option>
+              <option value="robo">Club Robotique SENUM</option>
+              <option value="both">Les deux clubs</option>
+            </select>
+          </div>
+          <div class="fg" id="branchFld" style="display:none;">
+            <label>Branche robotique</label>
+            <select><option value="">Choisir...</option><option>Programmation</option><option>Électronique</option><option>Créative (Design)</option><option>Sociale & Sponsors</option></select>
+          </div>
+          <div class="fg"><label>Motivation (optionnel)</label><textarea rows="3" placeholder="Pourquoi veux-tu rejoindre ce club ?"></textarea></div>
+          <button type="submit" class="btn btn-g" style="width:100%;justify-content:center;">Envoyer ma candidature →</button>
+        </form>
+        <div class="fsuc" id="formSuc">
+          <div class="fsuc-ico">🎉</div>
+          <h3>Candidature envoyée !</h3>
+          <p style="color:var(--muted);margin-top:.5rem;font-size:.88rem;">Merci ! Tu recevras une confirmation dans les 48h. Bienvenue dans la famille SENUM !</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background:var(--d1);">
+  <div class="wrap">
+    <div class="sh">
+      <span class="lbl">Contact</span>
+      <h2>Parlons<br>ensemble</h2>
+    </div>
+    <div class="cg">
+      <div class="ci">
+        <h3>Informations</h3>
+        <div class="c-item"><div class="c-ico">🏫</div><div class="c-txt"><strong>Établissement</strong>Lycée Galandou Diouf, Dakar, Sénégal</div></div>
+        <div class="c-item"><div class="c-ico">📧</div><div class="c-txt"><strong>Email</strong><a href="mailto:senum.lgd.collab@gmail.com">senum.lgd.collab@gmail.com</a></div></div>
+        <div class="c-item"><div class="c-ico">📱</div><div class="c-txt"><strong>Téléphone — Mariama Diop</strong><a href="tel:+221787646857">+221 78 764 68 57</a></div></div>
+        <div class="c-item"><div class="c-ico">📅</div><div class="c-txt"><strong>Année scolaire</strong>2025 – 2026</div></div>
+        <div style="margin-top:1.5rem;display:flex;gap:.75rem;flex-wrap:wrap;">
+          <a href="mailto:senum.lgd.collab@gmail.com" class="btn btn-g">Envoyer un email</a>
+          <a href="tel:+221787646857" class="btn btn-gh">Appeler</a>
+        </div>
+      </div>
+      <div>
+        <div class="map-box">
+          <span>📍</span>
+          <strong>Lycée Galandou Diouf</strong>
+          <span style="font-size:.85rem;">Dakar, Sénégal</span>
+          <a href="https://maps.google.com/?q=Lycée+Galandou+Diouf+Dakar" target="_blank">Voir sur Google Maps →</a>
+        </div>
+        <div class="cfbox">
+          <h3>Message rapide</h3>
+          <form action="https://formspree.io/f/xpwzagna" method="POST" onsubmit="submitContact(event)">
+            <input type="hidden" name="_subject" value="✉️ Nouveau message — Site SENUM">
+            <div class="fg"><input type="text" name="Nom" placeholder="Votre nom" required></div>
+            <div class="fg"><input type="email" name="email" placeholder="Votre email" required></div>
+            <div class="fg"><textarea name="Message" rows="3" placeholder="Votre message..." required></textarea></div>
+            <button type="submit" class="btn btn-gh" style="width:100%;justify-content:center;margin-top:.4rem;">Envoyer →</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="fi">
+      <div>
+        <div class="fl">SENUM<sup>LGD</sup></div>
+        <p class="fd">Club SENUM & Club Robotique SENUM — Former des jeunes responsables, créatifs et préparés pour l'avenir numérique au Lycée Galandou Diouf, Dakar.</p>
+      </div>
+      <div class="fc2"><h4>Clubs</h4><ul><li><a href="#apropos">À propos</a></li><li><a href="#equipe">Équipe</a></li><li><a href="#programme">Programme</a></li><li><a href="#projets">Projets</a></li></ul></div>
+      <div class="fc2"><h4>Formations</h4><ul><li><a href="#formations">Bureautique</a></li><li><a href="#formations">Cybersécurité</a></li><li><a href="#formations">Montage vidéo</a></li><li><a href="#formations">Robotique</a></li></ul></div>
+      <div class="fc2"><h4>Action</h4><ul>
+        <li><button onclick="openInsc()">Rejoindre</button></li>
+        <li><button onclick="openDon()">Faire un don</button></li>
+        <li><a href="#sponsors">Devenir sponsor</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul></div>
+    </div>
+    <div class="fb">
+      <p>© 2025–2026 Club SENUM & Club Robotique SENUM — Lycée Galandou Diouf, Dakar, Sénégal</p>
+      <p style="color:var(--g);font-weight:600;font-size:.75rem;"><a href="mailto:senum.lgd.collab@gmail.com">senum.lgd.collab@gmail.com</a></p>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING DON -->
+<button class="float-don" onclick="openDon()">💛 Faire un don</button>
+
+<!-- TOAST -->
+<div class="toast" id="toastEl"></div>
+
+<!-- MODAL INSCRIPTION -->
+<div class="mo" id="inscModal" onclick="if(event.target===this)closeModal('inscModal')">
+  <div class="modal">
+    <button class="mc2" onclick="closeModal('inscModal')">✕</button>
+    <span class="lbl">Rejoindre</span>
+    <h3>Inscription au Club SENUM</h3>
+    <p class="msub">Tu es élève au Lycée Galandou Diouf ? Remplis ce formulaire, on te recontacte sous 48h !</p>
+    <div class="mtabs">
+      <button class="mtab active" onclick="switchTab(this,'tS')">💻 SENUM</button>
+      <button class="mtab" onclick="switchTab(this,'tR')">🤖 Robotique</button>
+      <button class="mtab" onclick="switchTab(this,'tB')">⭐ Les deux</button>
+    </div>
+    <div id="tS" class="mpanel active">
+      <form action="https://formspree.io/f/xpwzagna" method="POST" onsubmit="submitModal(event,'Club SENUM')">
+        <input type="hidden" name="_subject" value="🟢 Nouvelle inscription — Club SENUM">
+        <input type="hidden" name="_replyto" value="senum.lgd.collab@gmail.com">
+        <input type="hidden" name="Club" value="Club SENUM">
+        <div class="frow"><div class="fg"><label>Prénom *</label><input type="text" name="Prénom" required placeholder="Prénom"></div><div class="fg"><label>Nom *</label><input type="text" name="Nom" required placeholder="Nom"></div></div>
+        <div class="frow"><div class="fg"><label>Classe *</label><input type="text" name="Classe" required placeholder="2nde SA..."></div><div class="fg"><label>Téléphone *</label><input type="tel" name="Téléphone" required placeholder="+221..."></div></div>
+        <div class="fg"><label>Email *</label><input type="email" name="email" required placeholder="email@exemple.com"></div>
+        <button type="submit" class="btn btn-g" style="width:100%;justify-content:center;">Rejoindre le Club SENUM →</button>
+      </form>
+    </div>
+    <div id="tR" class="mpanel">
+      <form action="https://formspree.io/f/xpwzagna" method="POST" onsubmit="submitModal(event,'Club Robotique')">
+        <input type="hidden" name="_subject" value="🤖 Nouvelle inscription — Club Robotique SENUM">
+        <input type="hidden" name="_replyto" value="senum.lgd.collab@gmail.com">
+        <input type="hidden" name="Club" value="Club Robotique SENUM">
+        <div class="frow"><div class="fg"><label>Prénom *</label><input type="text" name="Prénom" required placeholder="Prénom"></div><div class="fg"><label>Nom *</label><input type="text" name="Nom" required placeholder="Nom"></div></div>
+        <div class="frow"><div class="fg"><label>Classe *</label><input type="text" name="Classe" required placeholder="Classe"></div><div class="fg"><label>Téléphone *</label><input type="tel" name="Téléphone" required placeholder="+221..."></div></div>
+        <div class="fg"><label>Email *</label><input type="email" name="email" required placeholder="email@exemple.com"></div>
+        <div class="fg"><label>Branche *</label><select name="Branche" required><option value="">Choisir...</option><option>Programmation</option><option>Électronique</option><option>Créative (Design)</option><option>Sociale & Sponsors</option></select></div>
+        <button type="submit" class="btn btn-g" style="width:100%;justify-content:center;">Rejoindre le Club Robotique →</button>
+      </form>
+    </div>
+    <div id="tB" class="mpanel">
+      <form action="https://formspree.io/f/xpwzagna" method="POST" onsubmit="submitModal(event,'les deux clubs')">
+        <input type="hidden" name="_subject" value="⭐ Nouvelle inscription — Les deux clubs SENUM">
+        <input type="hidden" name="_replyto" value="senum.lgd.collab@gmail.com">
+        <input type="hidden" name="Club" value="Club SENUM + Club Robotique">
+        <div class="frow"><div class="fg"><label>Prénom *</label><input type="text" name="Prénom" required placeholder="Prénom"></div><div class="fg"><label>Nom *</label><input type="text" name="Nom" required placeholder="Nom"></div></div>
+        <div class="frow"><div class="fg"><label>Classe *</label><input type="text" name="Classe" required placeholder="Classe"></div><div class="fg"><label>Téléphone *</label><input type="tel" name="Téléphone" required placeholder="+221..."></div></div>
+        <div class="fg"><label>Email *</label><input type="email" name="email" required placeholder="email@exemple.com"></div>
+        <div class="fg"><label>Branche robotique souhaitée</label><select name="Branche"><option value="">Choisir...</option><option>Programmation</option><option>Électronique</option><option>Créative</option><option>Sociale & Sponsors</option></select></div>
+        <button type="submit" class="btn btn-g" style="width:100%;justify-content:center;">Rejoindre les deux clubs →</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL DON -->
+<div class="mo" id="donModal" onclick="if(event.target===this)closeModal('donModal')">
+  <div class="modal">
+    <button class="mc2" onclick="closeModal('donModal')">✕</button>
+    <span class="lbl">Soutenir</span>
+    <h3>Faire un don au Club SENUM</h3>
+    <p class="msub">Chaque franc compte et change concrètement la vie d'un élève. Merci pour votre générosité !</p>
+    <p style="font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:.7rem;">Choisir un montant :</p>
+    <div class="don-amounts">
+      <div class="damt" onclick="selAmt(this,'5000')">5 000<small>FCFA — 1 capteur</small></div>
+      <div class="damt" onclick="selAmt(this,'15000')">15 000<small>FCFA — 1 kit Arduino</small></div>
+      <div class="damt" onclick="selAmt(this,'50000')">50 000<small>FCFA — 3 séances</small></div>
+      <div class="damt" onclick="selAmt(this,'100000')">100 000<small>FCFA — 1 mois</small></div>
+      <div class="damt" onclick="selAmt(this,'300000')">300 000<small>FCFA — Kit complet</small></div>
+      <div class="damt" onclick="selAmt(this,'custom')">Autre<small>montant libre</small></div>
+    </div>
+    <div id="customAmt" style="display:none;" class="fg"><label>Montant en FCFA</label><input type="number" placeholder="Ex: 25000" min="500"></div>
+    <p style="font-size:.78rem;font-weight:600;color:var(--muted);margin-bottom:.7rem;">Choisir le moyen de paiement :</p>
+    <div class="dpays">
+
+      <!-- WAVE : instructions claires car pas de lien direct possible -->
+      <div class="dpay" onclick="toggleWaveInfo()" style="cursor:pointer;">
+        <div class="dpay-ico diw">📱</div>
+        <div class="dpay-txt">
+          <strong>Wave <span style="font-size:.7rem;color:var(--g);">▼ Voir comment envoyer</span></strong>
+          <small>Envoi instantané — Sans frais au Sénégal</small>
+        </div>
+      </div>
+      <div id="waveInfo" style="display:none;background:rgba(0,209,102,.07);border:1px solid rgba(0,209,102,.25);border-radius:12px;padding:1rem 1.2rem;margin-top:-.3rem;font-size:.83rem;line-height:1.7;">
+        <p style="font-weight:700;margin-bottom:.5rem;color:var(--text);">📱 Comment envoyer via Wave :</p>
+        <ol style="padding-left:1.2rem;color:var(--muted);">
+          <li>Ouvre l'appli <strong style="color:var(--text);">Wave</strong> sur ton téléphone</li>
+          <li>Appuie sur <strong style="color:var(--text);">« Envoyer »</strong></li>
+          <li>Entre le numéro : <strong style="color:var(--g);font-size:1rem;letter-spacing:.05em;">+221 78 764 68 57</strong>
+            <button onclick="copyWaveNum()" style="margin-left:.5rem;background:rgba(0,209,102,.15);color:var(--g);border:1px solid rgba(0,209,102,.3);border-radius:5px;padding:.15rem .5rem;font-size:.72rem;cursor:pointer;">Copier</button>
+          </li>
+          <li>Entre le <strong style="color:var(--text);">montant</strong> choisi et confirme</li>
+        </ol>
+        <p style="margin-top:.6rem;font-size:.75rem;color:var(--muted);">Nom du compte : <strong style="color:var(--text);">Mariama Diop — Club SENUM</strong></p>
+      </div>
+
+      <!-- ORANGE MONEY -->
+      <div class="dpay" onclick="toggleOMInfo()" style="cursor:pointer;">
+        <div class="dpay-ico dio">🟠</div>
+        <div class="dpay-txt">
+          <strong>Orange Money <span style="font-size:.7rem;color:var(--o);">▼ Voir comment envoyer</span></strong>
+          <small>+221 78 764 68 57 — confirmez par SMS</small>
+        </div>
+      </div>
+      <div id="omInfo" style="display:none;background:rgba(255,107,53,.07);border:1px solid rgba(255,107,53,.25);border-radius:12px;padding:1rem 1.2rem;margin-top:-.3rem;font-size:.83rem;line-height:1.7;">
+        <p style="font-weight:700;margin-bottom:.5rem;color:var(--text);">🟠 Comment envoyer via Orange Money :</p>
+        <ol style="padding-left:1.2rem;color:var(--muted);">
+          <li>Compose le <strong style="color:var(--text);">#144#</strong> ou ouvre l'appli <strong style="color:var(--text);">Orange Money</strong></li>
+          <li>Choisis <strong style="color:var(--text);">« Transfert »</strong></li>
+          <li>Entre le numéro : <strong style="color:var(--o);font-size:1rem;letter-spacing:.05em;">+221 78 764 68 57</strong>
+            <button onclick="copyOMNum()" style="margin-left:.5rem;background:rgba(255,107,53,.15);color:var(--o);border:1px solid rgba(255,107,53,.3);border-radius:5px;padding:.15rem .5rem;font-size:.72rem;cursor:pointer;">Copier</button>
+          </li>
+          <li>Entre le montant et valide avec ton code secret</li>
+        </ol>
+        <p style="margin-top:.6rem;font-size:.75rem;color:var(--muted);">Nom du compte : <strong style="color:var(--text);">Mariama Diop — Club SENUM</strong></p>
+      </div>
+
+      <!-- PAYPAL -->
+      <a class="dpay" href="https://www.paypal.com/donate?business=hendelnkounkou%40gmail.com&currency_code=EUR&item_name=Don+Club+SENUM+Lycee+Galandou+Diouf" target="_blank" onclick="showToast('🔵 PayPal ouvert — entrez le montant et validez !')">
+        <div class="dpay-ico dipp">🔵</div>
+        <div class="dpay-txt"><strong>PayPal</strong><small>Idéal depuis l'étranger — carte ou solde PayPal</small></div>
+      </a>
+
+      <!-- EMAIL -->
+      <a class="dpay" href="mailto:senum.lgd.collab@gmail.com?subject=Don%20au%20Club%20SENUM&body=Bonjour%2C%0A%0AJe%20souhaite%20faire%20un%20don%20de%20________%20FCFA%20au%20Club%20SENUM.%0AMon%20nom%20%3A%20________%0A%0AMerci%20!" onclick="showToast('✉️ Email ouvert — précisez votre montant !')">
+        <div class="dpay-ico die">✉️</div>
+        <div class="dpay-txt"><strong>Email / Virement</strong><small>Pour coordonner votre don ou un virement bancaire</small></div>
+      </a>
+
+    </div>
+    <p style="font-size:.72rem;color:var(--muted);margin-top:1.4rem;text-align:center;">Après votre don, confirmez par email à <strong><a href="mailto:senum.lgd.collab@gmail.com" style="color:var(--g);">senum.lgd.collab@gmail.com</a></strong> avec votre nom et montant. Merci 💚</p>
+  </div>
+</div>
+
+<script>
+// ── NAV ──
+function toggleMenu(){document.getElementById('mobMenu').classList.toggle('open');}
+function closeMob(){document.getElementById('mobMenu').classList.remove('open');}
+document.addEventListener('click',function(e){
+  var m=document.getElementById('mobMenu'),n=document.getElementById('navbar');
+  if(m.classList.contains('open')&&!m.contains(e.target)&&!n.contains(e.target))closeMob();
+});
+
+// ── MODALS ──
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';}
+function openInsc(){openModal('inscModal');}
+function openDon(){openModal('donModal');}
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeModal('inscModal');closeModal('donModal');}});
+
+// ── TABS ──
+function switchTab(btn,id){
+  document.querySelectorAll('.mtab').forEach(function(t){t.classList.remove('active');});
+  document.querySelectorAll('.mpanel').forEach(function(p){p.classList.remove('active');});
+  btn.classList.add('active');
+  document.getElementById(id).classList.add('active');
+}
+
+// ── WAVE / OM INFO TOGGLE ──
+function toggleWaveInfo(){
+  var el=document.getElementById('waveInfo');
+  el.style.display=el.style.display==='none'?'block':'none';
+}
+function toggleOMInfo(){
+  var el=document.getElementById('omInfo');
+  el.style.display=el.style.display==='none'?'block':'none';
+}
+function copyWaveNum(){
+  navigator.clipboard.writeText('+221787646857').then(function(){
+    showToast('✅ Numéro Wave copié : +221 78 764 68 57');
+  });
+}
+function copyOMNum(){
+  navigator.clipboard.writeText('+221787646857').then(function(){
+    showToast('✅ Numéro OM copié : +221 78 764 68 57');
+  });
+}
+
+// ── DON AMOUNTS ──
+function selAmt(el,val){
+  document.querySelectorAll('.damt').forEach(function(a){a.classList.remove('sel');});
+  el.classList.add('sel');
+  document.getElementById('customAmt').style.display=val==='custom'?'block':'none';
+}
+
+// ── FORMS ──
+function submitInsc(e){
+  e.preventDefault();
+  document.getElementById('inscForm').style.display='none';
+  document.getElementById('formSuc').style.display='block';
+  showToast('🎉 Candidature envoyée ! Bienvenue dans la famille SENUM !');
+}
+function submitModal(e,club){
+  e.preventDefault();
+  var form=e.target;
+  var data=new FormData(form);
+  fetch('https://formspree.io/f/xpwzagna',{method:'POST',body:data,headers:{'Accept':'application/json'}})
+    .then(function(r){
+      if(r.ok){
+        closeModal('inscModal');
+        showToast('🎉 Inscription au '+club+' confirmée ! On vous contacte bientôt.');
+        form.reset();
+      } else {
+        showToast('❌ Erreur envoi. Réessaie ou contacte-nous par email.');
+      }
+    })
+    .catch(function(){showToast('❌ Erreur réseau. Réessaie plus tard.');});
+}
+function submitContact(e){
+  e.preventDefault();
+  var form=e.target;
+  var data=new FormData(form);
+  fetch('https://formspree.io/f/xpwzagna',{method:'POST',body:data,headers:{'Accept':'application/json'}})
+    .then(function(r){
+      if(r.ok){form.reset();showToast('✅ Message envoyé ! Nous vous répondrons bientôt.');}
+      else{showToast('❌ Erreur envoi. Réessaie ou contacte-nous par email.');}
+    })
+    .catch(function(){showToast('❌ Erreur réseau. Réessaie plus tard.');});
+}
+function toggleBranch(s){
+  document.getElementById('branchFld').style.display=(s.value==='robo'||s.value==='both')?'block':'none';
+}
+
+// ── TOAST ──
+function showToast(msg){
+  var t=document.getElementById('toastEl');
+  t.textContent=msg;t.classList.add('show');
+  clearTimeout(window._tt);
+  window._tt=setTimeout(function(){t.classList.remove('show');},4500);
+}
+
+// ── PROGRESS BAR ──
+(function(){
+  var bar=document.getElementById('progBar');
+  if(!bar)return;
+  var done=false;
+  function animate(){
+    if(done)return;
+    var r=bar.getBoundingClientRect();
+    if(r.top<window.innerHeight){done=true;bar.style.width='8%';}
+  }
+  window.addEventListener('scroll',animate,{passive:true});
+  setTimeout(animate,500);
+})();
+
+// ── SCROLL REV
